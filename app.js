@@ -3,6 +3,7 @@ const logger = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const db = require('./db')
+const routes = require('./routes')
 
 const gamesController = require('./controllers/GameController')
 
@@ -18,7 +19,5 @@ app.use(logger('dev'))
 app.get('/', (req, res) => {
   res.send({ msg: 'Sever Running' })
 })
-
-app.get('/games', gamesController.getGames)
 
 app.listen(PORT, () => console.log(`Server Running on ${PORT}`))
