@@ -1,4 +1,4 @@
-const getGames = (request, response) => {
+const getGames = (req, res) => {
   res.send({
     message: 'Test: Getting Games'
   })
