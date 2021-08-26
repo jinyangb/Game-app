@@ -4,9 +4,9 @@
 
 #### By:
 
-[Component Hierarchy](https://ga-students.slack.com/archives/C02C6ABPTC6/p1629927959000100)
+[Component Hierarchy](https://i.imgur.com/bdIVPSJ.png)
 
-[ERD](https://ga-students.slack.com/archives/C02C6ABPTC6/p1629927981000300)
+[ERD](https://i.imgur.com/L1eG6gj.png)
 
 [Git](https://github.com/jinyangb/Game-app)
 
