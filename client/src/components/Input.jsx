@@ -10,7 +10,7 @@ const Input = (props) => {
         onChange={props.handleChange}
         value={props.value}
       />
-      <button onClick={props.addTask}>Login</button>
+      <button onClick={props.addGame}>Login</button>
     </div>
   )
 }

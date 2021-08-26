@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import Tasks from './Tasks'
-import Input from './Input'
+import TextInput from './TextInput'
+import { useHistory } from 'react-router'
 
-const TodoList = () => {
+const TodoList = ({ newGame, handleChange, addGame }) => {
   const [games, manageGames] = useState([])
   const [input, setInput] = useState('')
+  const history = useHistory()
 
-  const addGame = () => {
+  const addNewGame = () => {
     let myNewList = [...games, input]
     manageGames(myNewList)
   }
@@ -17,14 +19,56 @@ const TodoList = () => {
     manageGames(myNewList)
   }
 
-  const handleChange = (event) => {
+  const handleOtherChange = (event) => {
     setInput(event.target.value)
+    console.log(games)
   }
-
+  const handleSubmit = (e) => {
+    addGame(e)
+    history.push('/')
+  }
   return (
     <div className="list">
-      <Input handleChange={handleChange} addGame={addGame} />
-      <games games={games} removeTask={removeGame} />
+      <form onSubmit={handleSubmit}>
+        <TextInput
+          type="text"
+          value={newGame.name}
+          onChange={handleChange}
+          name={'name'}
+          placeholder={'name'}
+          handleChange={handleOtherChange}
+          addNewGame={addNewGame}
+        />
+        <TextInput
+          type="text"
+          value={newGame.img}
+          onChange={handleChange}
+          name={'img'}
+          placeholder={'image'}
+          handleChange={handleOtherChange}
+          addNewGame={addNewGame}
+        />
+        <TextInput
+          type="text-area"
+          value={newGame.description}
+          onChange={handleChange}
+          name={'description'}
+          placeholder={'description'}
+          handleChange={handleOtherChange}
+          addNewGame={addNewGame}
+        />
+        <TextInput
+          type="text"
+          value={newGame.price}
+          onChange={handleChange}
+          name={'price'}
+          placeholder={'price'}
+          handleChange={handleOtherChange}
+          addNewGame={addNewGame}
+        />
+        <button>Submit</button>
+      </form>
+      <Tasks games={games} removeGame={removeGame} />
     </div>
   )
 }
