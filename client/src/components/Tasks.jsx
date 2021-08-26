@@ -5,7 +5,7 @@ const Tasks = (props) => {
     <ul>
       {props.tasks.map((task, index) => (
         <li key={index}>
-          <button onClick={() => props.removeTask(index)}>x</button> {task}
+          <button onClick={() => props.removeGame(index)}>x</button> {task}
         </li>
       ))}
     </ul>

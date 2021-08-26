@@ -3,18 +3,18 @@ import Tasks from './Tasks'
 import Input from './Input'
 
 const TodoList = () => {
-  const [tasks, manageTasks] = useState([])
+  const [games, manageGames] = useState([])
   const [input, setInput] = useState('')
 
-  const addTask = () => {
-    let myNewList = [...tasks, input]
-    manageTasks(myNewList)
+  const addGame = () => {
+    let myNewList = [...games, input]
+    manageGames(myNewList)
   }
 
-  const removeTask = (index) => {
-    let myNewList = [...tasks]
+  const removeGame = (index) => {
+    let myNewList = [...games]
     myNewList.splice(index, 1)
-    manageTasks(myNewList)
+    manageGames(myNewList)
   }
 
   const handleChange = (event) => {
@@ -23,8 +23,8 @@ const TodoList = () => {
 
   return (
     <div className="list">
-      <Input handleChange={handleChange} addTask={addTask} />
-      <Tasks tasks={tasks} removeTask={removeTask} />
+      <Input handleChange={handleChange} addGame={addGame} />
+      <games games={games} removeTask={removeGame} />
     </div>
   )
 }
