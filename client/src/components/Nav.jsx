@@ -5,7 +5,7 @@ function Nav() {
     <nav className="navbar">
       <h4>Video Game To Do List</h4>
       <div>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/list/:username">Home</NavLink>
         <NavLink to="/new">New Game</NavLink>
       </div>
     </nav>

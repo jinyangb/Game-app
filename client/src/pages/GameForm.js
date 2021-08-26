@@ -4,7 +4,7 @@ import TextInput from '../components/TextInput'
 function GameForm(props) {
   const handleSubmit = (e) => {
     props.addGame(e)
-    props.history.push('/listings')
+    props.history.push('/list')
   }
   return (
     <div>
