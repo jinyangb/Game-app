@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -17,8 +18,15 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(logger('dev'))
 app.use(`/`, routes)
 
-app.get('/', (req, res) => {
-  res.send({ msg: 'Sever Running' })
-})
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')))
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(`${_dirname}/client/build/index.html`))
+  })
+}
+
+// app.get('/', (req, res) => {
+//   res.send({ msg: 'Sever Running' })
+// })
 
 app.listen(PORT, () => console.log(`Server Running on ${PORT}`))

@@ -17,9 +17,15 @@ const TodoList = ({ newGame, handleChange, addGame }) => {
     // manageGames(myNewList)
     console.log('newGame',formdata)
     try {
-      const res = await axios.post(`http://localhost:3001/games`, formdata)
-      return res.data
-    } catch (error) {console.log(error)}
+      const res = await axios.post(
+        process.env.NODE_ENV === 'production'
+          ? `${window.location.origin}/games`
+          : 'http://localhost:3001/games'
+      )
+    // try {
+    //   const res = await axios.post(`http://localhost:3001/games`, formdata)
+    //   return res.data
+    // } catch (error) {console.log(error)}
   }
 
   const removeGame = (index) => {
