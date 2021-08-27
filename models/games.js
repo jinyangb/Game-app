@@ -6,8 +6,8 @@ const Game = new Schema(
     Image: { type: String, required: true },
     Console: { type: String, required: true },
     Rating: { type: String, required: true },
-    Genre: { type: String, required: true },
-    publisher_id: { type: Schema.Types.ObjectId, ref: 'publisher_id' }
+    Genre: { type: String, required: true }
+    // publisher_id: { type: Schema.Types.ObjectId, ref: 'publisher_id' }
   },
   { timestamps: true }
 )

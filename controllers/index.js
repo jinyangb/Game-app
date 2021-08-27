@@ -1,6 +1,7 @@
-const Game = require('../models/games')
+const { Game } = require('../models')
 
 const createGame = async (req, res) => {
+  console.log('create game', req.body)
   try {
     const game = await new Game(req.body)
     await game.save()
