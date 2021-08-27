@@ -50,19 +50,19 @@ const TodoList = ({ newGame, handleChange, addGame }) => {
         />
         <TextInput
           type="text-area"
-          value={newGame.description}
+          value={newGame.console}
           onChange={handleChange}
-          name={'description'}
-          placeholder={'description'}
+          name={'console'}
+          placeholder={'console'}
           handleChange={handleOtherChange}
           addNewGame={addNewGame}
         />
         <TextInput
           type="text"
-          value={newGame.price}
+          value={newGame.rating}
           onChange={handleChange}
-          name={'price'}
-          placeholder={'price'}
+          name={'rating'}
+          placeholder={'rating'}
           handleChange={handleOtherChange}
           addNewGame={addNewGame}
         />

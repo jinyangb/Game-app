@@ -5,7 +5,6 @@ import './App.css'
 import GameList from './components/GameList'
 import Nav from './components/Nav'
 import List from './pages/List'
-import GameForm from './pages/GameForm'
 
 function App() {
   const [games, setGames] = useState([])
@@ -13,8 +12,9 @@ function App() {
     id: '',
     name: '',
     img: '',
-    description: '',
-    price: ''
+    console: '',
+    rating: '',
+    genre: ''
   })
 
   const addGame = (e) => {
@@ -22,12 +22,18 @@ function App() {
     const currentGames = games
     const addedGame = {
       ...newGame,
-      id: parseInt(games.length + 1),
-      price: parseInt(newGame.price)
+      id: parseInt(games.length + 1)
     }
     currentGames.push(addedGame)
     setGames(currentGames)
-    setNewGame({ id: '', name: '', img: '', description: '', price: '' })
+    setNewGame({
+      id: '',
+      name: '',
+      img: '',
+      console: '',
+      rating: '',
+      genre: ''
+    })
   }
   const handleChange = (e) => {
     setNewGame({ ...newGame, [e.target.name]: e.target.value })
