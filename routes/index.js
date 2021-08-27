@@ -4,7 +4,7 @@ const router = Router()
 
 router.post('/games', controllers.createGame)
 
-router.get('/games', controllers.getAllGame)
+router.get('/games', controllers.getAllGames)
 
 router.delete('/games/:id', controllers.deleteGame)
 

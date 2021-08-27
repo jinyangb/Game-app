@@ -14,6 +14,7 @@ function GameForm(props) {
         <TextInput
           type="text"
           value={props.newGame.name}
+          c
           onChange={props.handleChange}
           name={'name'}
           placeholder={'name'}

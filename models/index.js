@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const GameSchema = require('./game')
+const GameSchema = require('./games')
 
 const Game = mongoose.model('games', GameSchema)
 

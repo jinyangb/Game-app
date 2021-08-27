@@ -5,7 +5,7 @@ const cors = require('cors')
 const db = require('./db')
 const routes = require('./routes')
 
-const gamesController = require('./controllers/GameController')
+// const gamesController = require('./controllers/GameController')
 
 const PORT = process.env.PORT || 3001
 
@@ -15,6 +15,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(logger('dev'))
+app.use(`/`, routes)
 
 app.get('/', (req, res) => {
   res.send({ msg: 'Sever Running' })
