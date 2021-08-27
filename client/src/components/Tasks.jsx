@@ -3,9 +3,9 @@ import React from 'react'
 const Tasks = (props) => {
   return (
     <ul>
-      {props.tasks.map((task, index) => (
+      {props.games.map((game, index) => (
         <li key={index}>
-          <button onClick={() => props.removeGame(index)}>x</button> {task}
+          <button onClick={() => props.removeGame(index)}>x</button> {game}
         </li>
       ))}
     </ul>

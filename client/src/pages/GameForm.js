@@ -1,5 +1,6 @@
 import React from 'react'
 import TextInput from '../components/TextInput'
+import Tasks from '../components/Tasks'
 
 function GameForm(props) {
   const handleSubmit = (e) => {

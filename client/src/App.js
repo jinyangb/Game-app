@@ -6,7 +6,6 @@ import GameList from './components/GameList'
 import Nav from './components/Nav'
 import List from './pages/List'
 import GameForm from './pages/GameForm'
-import SignIn from './pages/SignIn'
 
 function App() {
   const [games, setGames] = useState([])
@@ -18,7 +17,7 @@ function App() {
     price: ''
   })
 
-  const addGame = async (e) => {
+  const addGame = (e) => {
     e.preventDefault()
     const currentGames = games
     const addedGame = {
@@ -26,7 +25,6 @@ function App() {
       id: parseInt(games.length + 1),
       price: parseInt(newGame.price)
     }
-    console.log(games, currentGames)
     currentGames.push(addedGame)
     setGames(currentGames)
     setNewGame({ id: '', name: '', img: '', description: '', price: '' })
@@ -41,19 +39,14 @@ function App() {
       </header>
       <body>
         <Switch>
-          <Route exact path="/" component={SignIn} />
-          <Route path="/list/:username" component={List} />
-          <Route
-            path="/new"
-            render={(props) => (
-              <GameForm
-                {...props}
-                newGame={newGame}
-                handleChange={handleChange}
-                addGame={addGame}
-              />
-            )}
-          />
+          <Route exact path="/">
+            <GameList
+              newGame={newGame}
+              handleChange={handleChange}
+              addGame={addGame}
+            />
+          </Route>
+          <Route path="/new"></Route>
         </Switch>
       </body>
     </div>
