@@ -9,12 +9,10 @@ import List from './pages/List'
 function App() {
   const [games, setGames] = useState([])
   const [newGame, setNewGame] = useState({
-    id: '',
     name: '',
     img: '',
     console: '',
-    rating: '',
-    genre: ''
+    rating: ''
   })
 
   const addGame = (e) => {
@@ -27,15 +25,14 @@ function App() {
     currentGames.push(addedGame)
     setGames(currentGames)
     setNewGame({
-      id: '',
       name: '',
       img: '',
       console: '',
-      rating: '',
-      genre: ''
+      rating: ''
     })
   }
   const handleChange = (e) => {
+    console.log('test')
     setNewGame({ ...newGame, [e.target.name]: e.target.value })
   }
   return (
