@@ -2,15 +2,24 @@ import React, { useState } from 'react'
 import Tasks from './Tasks'
 import TextInput from './TextInput'
 import { useHistory } from 'react-router'
+import axios from 'axios'
+
 
 const TodoList = ({ newGame, handleChange, addGame }) => {
   const [games, manageGames] = useState([])
   const [input, setInput] = useState('')
   const history = useHistory()
 
-  const addNewGame = () => {
-    let myNewList = [...games, input]
-    manageGames(myNewList)
+  
+
+  const addNewGame = async (formdata) => {
+    // let myNewList = [...games, newGame]
+    // manageGames(myNewList)
+    console.log('newGame',formdata)
+    try {
+      const res = await axios.post(`http://localhost:3001/games`, formdata)
+      return res.data
+    } catch (error) {console.log(error)}
   }
 
   const removeGame = (index) => {
@@ -19,25 +28,30 @@ const TodoList = ({ newGame, handleChange, addGame }) => {
     manageGames(myNewList)
   }
 
-  const handleOtherChange = (event) => {
-    setInput(event.target.value)
-    console.log(games)
-  }
+  // const handleOtherChange = (event) => {
+  //   setInput(event.target.value)
+    
+  // }
   const handleSubmit = (e) => {
-    addGame(e)
-    history.push('/')
+    e.preventDefault()
+    console.log('handlesubmit')
+    addNewGame(newGame)
+    
+    // history.push('/')
+    // console.log(games)
   }
   return (
     <div className="list">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <TextInput
           type="text"
           value={newGame.name}
           onChange={handleChange}
           name={'name'}
           placeholder={'name'}
-          handleChange={handleOtherChange}
-          addNewGame={addNewGame}
+      
+          
+
         />
         <TextInput
           type="text"
@@ -45,8 +59,8 @@ const TodoList = ({ newGame, handleChange, addGame }) => {
           onChange={handleChange}
           name={'img'}
           placeholder={'image'}
-          handleChange={handleOtherChange}
-          addNewGame={addNewGame}
+          
+      
         />
         <TextInput
           type="text-area"
@@ -54,8 +68,8 @@ const TodoList = ({ newGame, handleChange, addGame }) => {
           onChange={handleChange}
           name={'console'}
           placeholder={'console'}
-          handleChange={handleOtherChange}
-          addNewGame={addNewGame}
+          // 
+        
         />
         <TextInput
           type="text"
@@ -63,8 +77,8 @@ const TodoList = ({ newGame, handleChange, addGame }) => {
           onChange={handleChange}
           name={'rating'}
           placeholder={'rating'}
-          handleChange={handleOtherChange}
-          addNewGame={addNewGame}
+         
+          
         />
         <button>Submit</button>
       </form>
